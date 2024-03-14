@@ -108,6 +108,9 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 
+# Use LZ4 Ramdisk compression instead of GZIP
+BOARD_RAMDISK_USE_LZ4 := true
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := bengal
@@ -128,6 +131,9 @@ BOARD_VNDK_VERSION := current
 # UEFI
 TARGET_USES_UEFI := true
 
+# Screenshoot 
+ TW_INCLUDE_FB2PNG := true
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
@@ -136,3 +142,46 @@ BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
+
+# Removes the loop block errors after flashing ZIPs (Workaround) 
+TW_IGNORE_LOGICAL_MOUNT_ERRORS := true
+TW_LOOP_DEVICE_ERRORS_TO_LOG := true
+
+# SHRP flags
+# maintainer
+SHRP_MAINTAINER := "Tapin Recovery Instraller"
+
+# device
+SHRP_DEVICE_CODE := spes
+SHRP_PATH := device/xiaomi/spes
+SHRP_REC_TYPE := Normal
+SHRP_REC := /dev/block/platform/bootdevice/by-name/boot
+SHRP_HAS_RECOVERY_AS_BOOT := true
+SHRP_DEVICE_TYPE := V-A/B
+SHRP_AB := true
+
+# mount points
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /sdcard1
+SHRP_OTG := /usb_otg
+
+# theming
+SHRP_DARK := true
+
+# "SHRP Express"
+SHRP_EXPRESS := true
+SHRP_EXPRESS_USE_DATA := true
+
+# status bar padding
+SHRP_STATUSBAR_RIGHT_PADDING := 64
+SHRP_STATUSBAR_LEFT_PADDING := 64
+
+# skip all addons
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+SHRP_SKIP_DEFAULT_ADDON_2 := true
+SHRP_SKIP_DEFAULT_ADDON_3 := true
+SHRP_SKIP_DEFAULT_ADDON_4 := true
+SHRP_EXCLUDE_MAGISK_FLASH := true
+
+# flashlight
+SHRP_FLASH := 1
