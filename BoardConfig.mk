@@ -130,6 +130,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Display
@@ -202,7 +203,6 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
  BOARD_HAS_NO_SELECT_BUTTON := true 
  TW_EXCLUDE_APEX := true 
  RECOVERY_SDCARD_ON_DATA := true 
- TARGET_RECOVERY_QCOM_RTC_FIX := true
 
 # Removes the loop block errors after flashing ZIPs (Workaround) 
  TW_IGNORE_LOGICAL_MOUNT_ERRORS := true
