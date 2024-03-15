@@ -110,11 +110,6 @@ PRODUCT_SOONG_NAMESPACES += \
  PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
  VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH) 
  BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH) 
-  
-# Tool 
- TW_INCLUDE_REPACKTOOLS := true 
- TW_INCLUDE_RESETPROP := true 
- TW_INCLUDE_LIBRESETPROP := true 
 
 # Modul
 TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
@@ -132,6 +127,11 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
  BOARD_HAS_NO_SELECT_BUTTON := true 
  TW_EXCLUDE_APEX := true 
  RECOVERY_SDCARD_ON_DATA := true 
+
+# Tool 
+ TW_INCLUDE_REPACKTOOLS := true 
+ TW_INCLUDE_RESETPROP := true 
+ TW_INCLUDE_LIBRESETPROP := true 
 
 # USB Configuration 
  TW_EXCLUDE_DEFAULT_USB_INIT := true 
