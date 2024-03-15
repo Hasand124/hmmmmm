@@ -38,6 +38,10 @@ PRODUCT_PACKAGES += \
     otapreopt_script \
     checkpoint_gc
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
+
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl-qti \
@@ -46,6 +50,7 @@ PRODUCT_PACKAGES += \
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_BUILD_SUPER_PARTITION := false
 
 # f2fs utilities
 PRODUCT_PACKAGES += \
@@ -85,6 +90,9 @@ PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
 
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/commonsys-intf/display
+
 # Crypto 
  TW_INCLUDE_CRYPTO := true 
  TW_INCLUDE_CRYPTO_FBE := true 
@@ -104,10 +112,9 @@ PRODUCT_PACKAGES += \
  TW_INCLUDE_REPACKTOOLS := true 
  TW_INCLUDE_RESETPROP := true 
  TW_INCLUDE_LIBRESETPROP := true 
- TW_INCLUDE_LPDUMP := true 
 
- # include python, for ABX conversion 
- TW_INCLUDE_PYTHON := true
+# Modul
+TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
 
 # TWRP Configuration 
  TW_FRAMERATE := 60 
@@ -125,7 +132,6 @@ PRODUCT_PACKAGES += \
 
 # USB Configuration 
  TW_EXCLUDE_DEFAULT_USB_INIT := true 
- TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file 
   
  # Screenshoot  
  TW_INCLUDE_FB2PNG := true 
@@ -135,13 +141,10 @@ PRODUCT_PACKAGES += \
   
  # Log 
  TWRP_INCLUDE_LOGCAT := true 
- TARGET_USES_LOGD := true
+ TARGET_USES_LOGD := 
 
-# Modul
-TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
-
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys-intf/display
+RECOVERY_BINARY_SOURCE_FILES += \
+    $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
 
 # Properties
 TW_OVERRIDE_SYSTEM_PROPS := \
@@ -151,8 +154,8 @@ TW_OVERRIDE_SYSTEM_PROPS := \
 OF_DEFAULT_KEYMASTER_VERSION := 4.1
 TW_FORCE_KEYMASTER_VER := true
 
-RECOVERY_BINARY_SOURCE_FILES += \
-    $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
+# Vibrator
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
