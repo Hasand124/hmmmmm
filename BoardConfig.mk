@@ -145,8 +145,12 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 500
 
-# Modul
-TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
+# Properties
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
+
+# Vibrator
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Configure Status bar icons for regular TWRP builds only 
  ifneq ($(OF_HIDE_NOTCH),1) 
