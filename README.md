@@ -1,4 +1,4 @@
-![SHRP](https://xdaforums.com/t/recovery-herolte-sky-hawk-recovery-project-official-v2-2-02-05-2020.4099339/)
+![SHRP](https://drive.google.com/file/d/1WCedtcUF9-EqS6VhPl6pY-o7pH_QzEAV/view?usp=drive_link)
 
 ## Device config for Orangefox Recovery Redmi Note 11/11 NFC (spes/spesn)
 
