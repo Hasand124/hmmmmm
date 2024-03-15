@@ -142,9 +142,6 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 500
 
-# Vibrator
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-
 # Configure Status bar icons for regular TWRP builds only 
  ifneq ($(OF_HIDE_NOTCH),1) 
      TW_DEVICE_VERSION := Norikhsan90 
