@@ -6,9 +6,6 @@
 
 DEVICE_PATH := device/xiaomi/spes
 
-# For building with minimal manifest 
- ALLOW_MISSING_DEPENDENCIES := true
-
 # Build Hack
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
