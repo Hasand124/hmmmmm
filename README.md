@@ -14,7 +14,7 @@ Redmi Note 11 was announced and released in January/February 2022.
 Chipset | Qualcomm SM6225 Snapdragon 680
 GPU | Adreno 610
 Memory | 4/6 GB RAM
-Shipped Android Version | 11.0
+Shipped Android Version | 13.0
 Storage | 64/128 GB (UFS 2.2)
 Battery | Non-removable Li-Po 5000 mAh
 Display | 1080 x 2400 pixels, 6.43 inches (~409 ppi pixel density)
