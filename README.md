@@ -1,4 +1,4 @@
-![SHRP](https://drive.google.com/file/d/1WCedtcUF9-EqS6VhPl6pY-o7pH_QzEAV/view?usp=sharing)
+![SHRP](https://drive.google.com/file/d/1WCedtcUF9-EqS6VhPl6pY-o7pH_QzEAV/view)
 
 ## Device config for Orangefox Recovery Redmi Note 11/11 NFC (spes/spesn)
 
