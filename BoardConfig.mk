@@ -169,62 +169,6 @@ BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
-# Crypto 
- TW_INCLUDE_CRYPTO := true 
- TW_INCLUDE_CRYPTO_FBE := true 
- TW_INCLUDE_FBE_METADATA_DECRYPT := true 
- TW_FIX_DECRYPTION_ON_DATA_MEDIA := true 
- BOARD_USES_QCOM_FBE_DECRYPTION := true
-  
- # Security patch level
- PLATFORM_SECURITY_PATCH := 2099-12-31
- VENDOR_SECURITY_PATCH := 2099-12-31
- PLATFORM_VERSION := 99.87.36
- PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
- VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH) 
- BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH) 
-  
-# Tool 
- TW_INCLUDE_REPACKTOOLS := true 
- TW_INCLUDE_RESETPROP := true 
- TW_INCLUDE_LIBRESETPROP := true 
- TW_INCLUDE_LPDUMP := true 
-
- # include python, for ABX conversion 
- TW_INCLUDE_PYTHON := true
-
-# TWRP Configuration 
- TW_FRAMERATE := 60 
- TW_THEME := portrait_hdpi 
- TW_INCLUDE_NTFS_3G    := true 
- TW_INCLUDE_FUSE_EXFAT := true 
- TW_INCLUDE_FUSE_NTFS  := true 
- TW_INPUT_BLACKLIST := "hbtp_vm" 
- TW_EXTRA_LANGUAGES := true 
- TW_NO_SCREEN_BLANK := true 
- TW_SCREEN_BLANK_ON_BOOT := true 
- BOARD_HAS_NO_SELECT_BUTTON := true 
- TW_EXCLUDE_APEX := true 
- RECOVERY_SDCARD_ON_DATA := true 
-
-# Removes the loop block errors after flashing ZIPs (Workaround) 
- TW_IGNORE_LOGICAL_MOUNT_ERRORS := true
- TW_LOOP_DEVICE_ERRORS_TO_LOG := true
-
-# USB Configuration 
- TW_EXCLUDE_DEFAULT_USB_INIT := true 
- TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file 
-  
- # Screenshoot  
- TW_INCLUDE_FB2PNG := true 
-  
- # This device support fastbootd, do *NOT* remove! 
- TW_INCLUDE_FASTBOOTD := true 
-  
- # Log 
- TWRP_INCLUDE_LOGCAT := true 
- TARGET_USES_LOGD := true
-
 # SHRP flags
 # maintainer
 SHRP_MAINTAINER := "Tapin Recovery Instraller"
