@@ -9,6 +9,10 @@ DEVICE_PATH := device/xiaomi/spes
 # For building with minimal manifest 
  ALLOW_MISSING_DEPENDENCIES := true
 
+# Build Hack
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -46,10 +50,6 @@ TARGET_BOARD_PLATFORM := bengal
 
 # Assertation
 TARGET_OTA_ASSERT_DEVICE := spes,spesn
-
-# Build Hack
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 3
