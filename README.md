@@ -1,6 +1,6 @@
 ![SHRP](https://github.com/Hasand124/hmmmmm/blob/main/banner_xda.png)
 
-## Device config for Orangefox Recovery Redmi Note 11/11 NFC (spes/spesn)
+## Device config for SHRP Recovery Redmi Note 11/11 NFC (spes/spesn)
 
 The Xiaomi Redmi Note 11 (codenamed "spes/spesn") is a mid range smartphone from Xiaomi.
 
