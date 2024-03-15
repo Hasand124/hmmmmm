@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/xiaomi/spes
 
+# For building with minimal manifest 
+ ALLOW_MISSING_DEPENDENCIES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -33,7 +36,6 @@ AB_OTA_PARTITIONS += \
     vendor \
     vendor_boot
 BOARD_USES_RECOVERY_AS_BOOT := true 
-
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := bengal
@@ -121,8 +123,11 @@ TARGET_COPY_OUT_PRODUCT := product
  TARGET_USERIMAGES_USE_F2FS := true 
  TARGET_USES_MKE2FS := true
 
-# Use LZ4 Ramdisk compression instead of GZIP
-BOARD_RAMDISK_USE_LZ4 := true
+# Metadata 
+ BOARD_ROOT_EXTRA_FOLDERS += metadata 
+  
+# Use LZ4 Ramdisk compression instead of GZIP 
+ BOARD_RAMDISK_USE_LZ4 := true
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -135,24 +140,31 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # Display
+TARGET_SCREEN_DENSITY := 440
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 500
 
-# StatusBar
-TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := "300"
-TW_CUSTOM_CLOCK_POS := "70"
-TW_CUSTOM_BATTERY_POS := "790"
+# Modul
+TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
 
-# Treble
-BOARD_VNDK_VERSION := current
+# Configure Status bar icons for regular TWRP builds only 
+ ifneq ($(OF_HIDE_NOTCH),1) 
+     TW_DEVICE_VERSION := Norikhsan90 
+     TW_STATUS_ICONS_ALIGN := center 
+     TW_CUSTOM_CPU_POS := "300" 
+     TW_CUSTOM_CLOCK_POS := "70" 
+     TW_CUSTOM_BATTERY_POS := "790" 
+ endif
 
-# UEFI
-TARGET_USES_UEFI := true
+# UEFI 
+ TARGET_USES_UEFI := true 
+  
+# VNDK Treble 
+ BOARD_VNDK_VERSION := current
 
 # Screenshoot 
-TW_INCLUDE_FB2PNG := true
+ TW_INCLUDE_FB2PNG := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -162,8 +174,6 @@ BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
-
-TW_DEVICE_VERSION := Norikhsan90
 
 # Crypto 
  TW_INCLUDE_CRYPTO := true 
@@ -185,11 +195,41 @@ TW_DEVICE_VERSION := Norikhsan90
  TW_INCLUDE_LIBRESETPROP := true 
  TW_INCLUDE_LPDUMP := true 
 
+ # include python, for ABX conversion 
+ TW_INCLUDE_PYTHON := true
+
+# TWRP Configuration 
+ TW_FRAMERATE := 60 
+ TW_THEME := portrait_hdpi 
+ TW_INCLUDE_NTFS_3G    := true 
+ TW_INCLUDE_FUSE_EXFAT := true 
+ TW_INCLUDE_FUSE_NTFS  := true 
+ TW_INPUT_BLACKLIST := "hbtp_vm" 
+ TW_EXTRA_LANGUAGES := true 
+ TW_NO_SCREEN_BLANK := true 
+ TW_SCREEN_BLANK_ON_BOOT := true 
+ BOARD_HAS_NO_SELECT_BUTTON := true 
+ TW_EXCLUDE_APEX := true 
+ RECOVERY_SDCARD_ON_DATA := true 
+ TARGET_RECOVERY_QCOM_RTC_FIX := true
+
 # Removes the loop block errors after flashing ZIPs (Workaround) 
  TW_IGNORE_LOGICAL_MOUNT_ERRORS := true
  TW_LOOP_DEVICE_ERRORS_TO_LOG := true
 
-
+# USB Configuration 
+ TW_EXCLUDE_DEFAULT_USB_INIT := true 
+ TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file 
+  
+ # Screenshoot  
+ TW_INCLUDE_FB2PNG := true 
+  
+ # This device support fastbootd, do *NOT* remove! 
+ TW_INCLUDE_FASTBOOTD := true 
+  
+ # Log 
+ TWRP_INCLUDE_LOGCAT := true 
+ TARGET_USES_LOGD := true
 
 # SHRP flags
 # maintainer
