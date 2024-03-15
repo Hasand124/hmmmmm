@@ -41,6 +41,9 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_BOOTLOADER_BOARD_NAME := bengal
 TARGET_NO_BOOTLOADER := true
 
+# Platform
+TARGET_BOARD_PLATFORM := bengal
+
 # Assertation
 TARGET_OTA_ASSERT_DEVICE := spes,spesn
 
@@ -119,22 +122,17 @@ TARGET_COPY_OUT_PRODUCT := product
 
 # Metadata
  BOARD_USES_METADATA_PARTITION := true 
- BOARD_ROOT_EXTRA_FOLDERS += metadata 
   
 # Use LZ4 Ramdisk compression instead of GZIP 
  BOARD_RAMDISK_USE_LZ4 := true
-
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := bengal
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+BOARD_USES_QCOM_HARDWARE := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Display
 TARGET_SCREEN_DENSITY := 440
