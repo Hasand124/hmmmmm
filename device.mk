@@ -95,27 +95,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/commonsys-intf/display
 
- # include python, for ABX conversion 
- TW_INCLUDE_PYTHON := true
-
-TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
-
-# TWRP Configuration 
- TW_FRAMERATE := 60 
- TW_THEME := portrait_hdpi 
- TW_INCLUDE_NTFS_3G    := true 
- TW_INCLUDE_FUSE_EXFAT := true 
- TW_INCLUDE_FUSE_NTFS  := true 
- TW_INPUT_BLACKLIST := "hbtp_vm" 
- TW_EXTRA_LANGUAGES := true 
- TW_NO_SCREEN_BLANK := true 
- TW_SCREEN_BLANK_ON_BOOT := true 
- BOARD_HAS_NO_SELECT_BUTTON := true 
- TW_EXCLUDE_APEX := true 
- RECOVERY_SDCARD_ON_DATA := true 
- TARGET_RECOVERY_QCOM_RTC_FIX := true
-
-#Properties
+# Properties
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
 
