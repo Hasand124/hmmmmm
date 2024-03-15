@@ -1,4 +1,4 @@
-![ORANGEFOX](https://wiki.orangefox.tech/banner.svg)
+![SHRP]([https://wiki.orangefox.tech/banner.svg](https://xdaforums.com/proxy.php?image=https%3A%2F%2Fgithub.com%2FDNI9%2FSHRP_%2Fraw%2Fmaster%2Fimg%2Fshrp3_banner_xda.png&hash=64337414359ef1feb6f4de18c17c665b))
 
 ## Device config for Orangefox Recovery Redmi Note 11/11 NFC (spes/spesn)
 
