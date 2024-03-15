@@ -95,6 +95,14 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/commonsys-intf/display
 
+# Properties
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
+
+# OF_DEFAULT_KEYMASTER_VERSION This is to specify the default version for the keymaster services used for decryption
+OF_DEFAULT_KEYMASTER_VERSION := 4.1
+TW_FORCE_KEYMASTER_VER := true
+
 RECOVERY_BINARY_SOURCE_FILES += \
     $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
 
