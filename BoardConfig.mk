@@ -156,9 +156,6 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 # VNDK Treble 
  BOARD_VNDK_VERSION := current
 
-# Screenshoot 
- TW_INCLUDE_FB2PNG := true
-
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
