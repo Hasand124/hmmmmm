@@ -20,7 +20,7 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Product Specifics
 PRODUCT_NAME := twrp_spes
 PRODUCT_DEVICE := spes
-PRODUCT_BRAND := Redmi
+PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 11
 PRODUCT_MANUFACTURER := Xiaomi
 
