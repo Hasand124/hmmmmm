@@ -119,6 +119,9 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
  TW_EXCLUDE_APEX := true 
  RECOVERY_SDCARD_ON_DATA := true 
 
+# include python, for ABX conversion 
+ TW_INCLUDE_PYTHON := true
+
 # Tool 
  TW_INCLUDE_REPACKTOOLS := true 
  TW_INCLUDE_RESETPROP := true 
