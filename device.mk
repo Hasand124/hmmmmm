@@ -144,7 +144,7 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
   
  # Log 
  TWRP_INCLUDE_LOGCAT := true 
- TARGET_USES_LOGD := 
+ TARGET_USES_LOGD := true
 
 RECOVERY_BINARY_SOURCE_FILES += \
     $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
