@@ -109,8 +109,7 @@ PRODUCT_SOONG_NAMESPACES += \
  PLATFORM_VERSION := 99.87.36
  PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
  VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH) 
- BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH) 
-
+ 
 # Modul
 TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti vendor.qti.hardware.vibrator.service vendor.qti.hardware.vibrator.impl libqtivibratoreffect
 
