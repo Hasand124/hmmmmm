@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# For building with minimal manifest 
+ ALLOW_MISSING_DEPENDENCIES := true
+
 # Enable virtual A/B OTA
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -13,12 +16,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
-# Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
-
-# For building with minimal manifest 
- ALLOW_MISSING_DEPENDENCIES := true
 
 # API
 PRODUCT_TARGET_VNDK_VERSION := 30
@@ -148,16 +145,12 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
 RECOVERY_BINARY_SOURCE_FILES += \
     $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
 
-# Properties
-TW_OVERRIDE_SYSTEM_PROPS := \
-    "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
-
 # OF_DEFAULT_KEYMASTER_VERSION This is to specify the default version for the keymaster services used for decryption
-OF_DEFAULT_KEYMASTER_VERSION := 4.1
-TW_FORCE_KEYMASTER_VER := true
+ OF_DEFAULT_KEYMASTER_VERSION := 4.1
+ TW_FORCE_KEYMASTER_VER := true
 
 # Vibrator
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+ TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
