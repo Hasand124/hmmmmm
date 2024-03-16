@@ -58,10 +58,6 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
-# FUSE passthrough
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.fuse.passthrough.enable=true
-
 # Init scripts
 PRODUCT_PACKAGES += \
     init.recovery.qcom.sh \
@@ -79,9 +75,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
-
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys-intf/display
 
 # Crypto 
  TW_INCLUDE_CRYPTO := true 
@@ -114,9 +107,6 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
  TW_EXCLUDE_APEX := true 
  RECOVERY_SDCARD_ON_DATA := true 
 
-# include python, for ABX conversion 
- TW_INCLUDE_PYTHON := true
-
 # Tool 
  TW_INCLUDE_REPACKTOOLS := true 
  TW_INCLUDE_RESETPROP := true 
@@ -137,10 +127,6 @@ TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.displa
 
 RECOVERY_BINARY_SOURCE_FILES += \
     $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.qti.hardware.vibrator.service
-
-# OF_DEFAULT_KEYMASTER_VERSION This is to specify the default version for the keymaster services used for decryption
- OF_DEFAULT_KEYMASTER_VERSION := 4.1
- TW_FORCE_KEYMASTER_VER := true
 
 # Vibrator
  TW_SUPPORT_INPUT_AIDL_HAPTICS := true
