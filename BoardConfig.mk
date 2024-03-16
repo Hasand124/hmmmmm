@@ -51,19 +51,7 @@ TARGET_OTA_ASSERT_DEVICE := spes,spesn
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
-BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
-BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=default
-BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
-BOARD_KERNEL_CMDLINE += androidboot.memcg=1
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8
-BOARD_KERNEL_CMDLINE += earlycon=msm_geni_serial,0x4a90000
-BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
-BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
-BOARD_KERNEL_CMDLINE += service_locator.enable=1
-BOARD_KERNEL_CMDLINE += swiotlb=2048
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_DTB_OFFSET := 0x01f00000
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -72,14 +60,10 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_TAGS_OFFSET := 0x00000100
 
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := vendor/spes-perf_defconfig
-TARGET_KERNEL_HEADERS := kernel/xiaomi/sm6225
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6225
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
@@ -153,51 +137,3 @@ TW_DEFAULT_BRIGHTNESS := 500
   
 # VNDK Treble 
  BOARD_VNDK_VERSION := current
-
-# Verified Boot
-BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-BOARD_AVB_VBMETA_SYSTEM := product system system_ext
-BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
-
-# SHRP flags
-# maintainer
-SHRP_MAINTAINER := "Tapin Recovery Instraller"
-
-# device
-SHRP_DEVICE_CODE := spes
-SHRP_PATH := device/xiaomi/spes
-SHRP_REC_TYPE := Normal
-SHRP_REC := /dev/block/platform/bootdevice/by-name/boot
-SHRP_HAS_RECOVERY_AS_BOOT := true
-SHRP_DEVICE_TYPE := V-A/B
-SHRP_AB := true
-
-# mount points
-SHRP_INTERNAL := /sdcard
-SHRP_EXTERNAL := /sdcard1
-SHRP_OTG := /usb_otg
-
-# theming
-SHRP_DARK := true
-
-# "SHRP Express"
-SHRP_EXPRESS := true
-SHRP_EXPRESS_USE_DATA := true
-
-# status bar padding
-SHRP_STATUSBAR_RIGHT_PADDING := 64
-SHRP_STATUSBAR_LEFT_PADDING := 64
-
-# skip all addons
-SHRP_SKIP_DEFAULT_ADDON_1 := true
-SHRP_SKIP_DEFAULT_ADDON_2 := true
-SHRP_SKIP_DEFAULT_ADDON_3 := true
-SHRP_SKIP_DEFAULT_ADDON_4 := true
-SHRP_EXCLUDE_MAGISK_FLASH := true
-
-# flashlight
-SHRP_FLASH := 1
