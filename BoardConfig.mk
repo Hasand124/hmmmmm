@@ -125,7 +125,7 @@ TW_DEFAULT_BRIGHTNESS := 500
 
 # Configure Status bar icons for regular TWRP builds only 
  ifneq ($(OF_HIDE_NOTCH),1) 
-     TW_DEVICE_VERSION := Norikhsan90 
+     TW_DEVICE_VERSION := Tapin™
      TW_STATUS_ICONS_ALIGN := center 
      TW_CUSTOM_CPU_POS := "300" 
      TW_CUSTOM_CLOCK_POS := "70" 
